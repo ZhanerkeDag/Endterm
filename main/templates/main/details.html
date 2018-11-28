@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block body %}
+    {% if person %}
+        <h1>Person Info:</h1>
+        <Label for="name">Name: </Label>
+        <input type="text" name="name" value={{person.name}} size="50" disabled><br>
+        <Label for="surname">Surname: </Label>
+        <input type="text" name="surname" value={{person.surname}} size="50" disabled><br>
+        <Label for="date_of_birth">Date of Birth: </Label>
+        <input type="text" name="date_of_birth" value={{person.date_of_birth|date:"d/m/y"}} size="50" disabled><br>
+        <Label for="email">Email: </Label>
+        <input type="text" name="email" value={{person.email}} size="50" disabled><br>
+        <Label for="number">Number: </Label>
+        <input type="text" name="number" value={{person.number}} size="50" disabled><br>
+        <Label for="gender">Gender: </Label>
+        <input type="text" name="gender" value={{person.gender}} size="50" disabled><br>
+        <Label for="year_at_school">Year at School: </Label>
+        <input type="text" name="year_at_school" value={{person.year_at_school}} size="50" disabled><br>
+        <Label for="category">Category: </Label>
+        <input type="text" name="category" value={{person.category.name}} size="50" disabled><br>
+        <Label for="achievements">Achievements: </Label>
+        <input type="text" name="achievements" value={{person.achievements.title}} size="50" disabled><br>
+    {% else %}
+        <p>No person info is available who got achievements in the specified category yet.</p>
+    {% endif %}
+{% endblock %}
